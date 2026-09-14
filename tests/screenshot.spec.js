@@ -7,8 +7,8 @@ test('@smoke screenshot test', async ({ page }) => {
         path: "screenshot/screenshot.png"
     });
 
-    //expect(await page.screenshot()).toMatchSnapshot(
-       // 'obsqura.png',
-     //   { threshold: 0.2 }
-    //);
+    expect(await page.screenshot()).toMatchSnapshot(
+       'obsqura.png',
+       { threshold: 0.2 }
+    );
 });

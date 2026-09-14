@@ -4,7 +4,7 @@ import Productpage  from "../pages/productspage.js";
 import Cartpage  from "../pages/cartpage.js";
 import Checkoutpage  from "../pages/checkoutpage.js";
 import Backpage  from "../pages/backpage.js";
-
+import testdata from "../testdata/testdata.json" with { type: "json" };
 test('saucedemosite test', async({page}) => {
   /*await page.goto("https://www.saucedemo.com/");
   await page.locator("#user-name").fill("standard_user");
@@ -14,9 +14,11 @@ test('saucedemosite test', async({page}) => {
   await expect(page).toHaveTitle("Swag Labs");
   await expect(page.locator(".title")).toHaveText("Products");*/
 const loginPage = new Loginpage(page);
+let usernamevalue = testdata.username;
+let passwordvalue= testdata.password;
 await page.goto("https://www.saucedemo.com/");
-await loginPage.enterUsername("standard_user");
-await loginPage.enterPassword("secret_sauce");
+await loginPage.enterUsername("usernamevalue");
+await loginPage.enterPassword("passwordvalue");
 await loginPage.clickLogin();
 await expect(page).toHaveTitle("Swag Labs");
 await expect(page.locator(".title")).toHaveText("Products");
